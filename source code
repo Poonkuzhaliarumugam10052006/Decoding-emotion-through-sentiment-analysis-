@@ -1,0 +1,29 @@
+!pip install textblob pandas
+from textblob import TextBlob
+import pandas as pd
+# Example social media posts (you can modify or expand this list)
+posts = [
+    "I'm loving this weather today!",
+    "I feel terrible about what happened.",
+    "It's an average day, nothing special.",
+    "So excited to start my new job!",
+    "Ugh, traffic is the worst."
+]
+def analyze_sentiment(text):
+    analysis = TextBlob(text)
+    polarity = analysis.sentiment.polarity
+
+    if polarity > 0:
+        return 'Positive'
+    elif polarity == 0:
+        return 'Neutral'
+    else:
+        return 'Negative'
+        # Create a DataFrame with the posts
+df = pd.DataFrame(posts, columns=['Post'])
+
+# Apply the sentiment analysis function
+df['Sentiment'] = df['Post'].apply(analyze_sentiment)
+
+# Show the result
+df
