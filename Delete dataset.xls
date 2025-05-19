@@ -27,3 +27,4 @@ df['Sentiment'] = df['Post'].apply(analyze_sentiment)
 
 # Show the result
 df
+Delete source code1006
